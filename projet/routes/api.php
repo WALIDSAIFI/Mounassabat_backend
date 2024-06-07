@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\AdminController;
 use App\Http\Controllers\API\userController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,3 +28,8 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 Route::get('/user/{id}', [UserController::class, 'indexUser']);
 Route::get('/user', [UserController::class, 'indexToutUser']);
+
+Route::get('/indexuser',[AdminController::class, 'indexUser']);
+Route::post('/users/{id}', [AdminController::class, 'blockUser']);
+Route::get('/nombre/Sixjour',[AdminController::class, 'userCreationsLastSixDays']);
+Route::get('/nombreBloker',[AdminController::class, 'countBlockedAndUnblockedUsers']);
