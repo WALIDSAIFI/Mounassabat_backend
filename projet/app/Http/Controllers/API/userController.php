@@ -69,6 +69,7 @@ class userController extends Controller
     {
         $user = User::findOrFail($id);
         return response()->json($user, 200);
+        
     }
     public function indexToutUser()
     {
