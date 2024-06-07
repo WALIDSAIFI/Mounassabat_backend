@@ -63,4 +63,19 @@ class userController extends Controller
         $request->user()->tokens()->delete();
         return response()->json(['message' => 'Déconnexion réussie']);
     }
+
+
+    public function indexUser($id)
+    {
+        $user = User::findOrFail($id);
+        return response()->json($user, 200);
+    }
+    public function indexToutUser()
+    {
+        $user = User::all();
+        return response()->json($user, 200);
+    }
+
+
+
 }
