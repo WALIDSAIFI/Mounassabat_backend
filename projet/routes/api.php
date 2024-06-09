@@ -29,7 +29,8 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::get('/user/{id}', [UserController::class, 'indexUser']);
 Route::get('/user', [UserController::class, 'indexToutUser']);
 
-Route::get('/indexuser',[AdminController::class, 'indexUser']);
-Route::post('/users/{id}', [AdminController::class, 'blockUser']);
+Route::post('/usersBLOK/{id}', [AdminController::class, 'blockUser']);
 Route::get('/nombre/Sixjour',[AdminController::class, 'userCreationsLastSixDays']);
 Route::get('/nombreBloker',[AdminController::class, 'countBlockedAndUnblockedUsers']);
+Route::get('/unbolkerUser/{id}',[AdminController::class, 'unblockUser']);
+
