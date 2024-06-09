@@ -28,9 +28,11 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 Route::get('/user/{id}', [UserController::class, 'indexUser']);
 Route::get('/user', [UserController::class, 'indexToutUser']);
-
 Route::post('/usersBLOK/{id}', [AdminController::class, 'blockUser']);
 Route::get('/nombre/Sixjour',[AdminController::class, 'userCreationsLastSixDays']);
 Route::get('/nombreBloker',[AdminController::class, 'countBlockedAndUnblockedUsers']);
 Route::get('/unbolkerUser/{id}',[AdminController::class, 'unblockUser']);
+Route::get('/nombreutilisateurBloker',[AdminController::class, 'nombreBolker']);
+Route::get('/nombreutilisateurNomBloker',[AdminController::class, 'nombreNomBloker']);
+Route::get('/userBloker',[AdminController::class, 'utilisateurBloker']);
 
