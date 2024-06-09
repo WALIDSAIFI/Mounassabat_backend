@@ -15,7 +15,6 @@ class AdminController extends Controller
         if ($user) {
             $user->Etat = 1;
             $user->save();
-
             return response()->json([
                 'success' => true,
                 'message' => 'Compte utilisateur bloqué avec succès.',
@@ -75,5 +74,31 @@ class AdminController extends Controller
             ], 404);
         }
     }
+    public function nombreBolker(){
+         $nombre = User::where('Etat',1)->count();
+
+         return response()->json([
+              'nombre des utilisateur boker' => $nombre,
+         ]);
+    }
+    public function nombreNomBloker(){
+        $nombrNomBoloker = User::where('Etat',0)->count();
+        return response()->json([
+            'nombre des utilisteur nom bloker' => $nombrNomBoloker,
+        ]);
+    }
+    public  function utilisateurBloker(){
+        $userBoloker = User::where('Etat',0)->get();
+        return response()->json([
+               $userBoloker,
+        ]);
+    }
+    public  function utilisateurBloker(){
+        $userBoloker = User::where('Etat',0)->get();
+        return response()->json([
+            $userBoloker,
+        ]);
+    }
+
 
 }
