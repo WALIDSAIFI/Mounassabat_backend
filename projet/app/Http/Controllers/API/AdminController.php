@@ -18,7 +18,7 @@ class AdminController extends Controller
 
             return response()->json([
                 'success' => true,
-                'message' => 'User account blocked successfully.',
+                'message' => 'Compte utilisateur bloqué avec succès.',
             ], 200);
         } else {
             return response()->json([
@@ -61,12 +61,12 @@ class AdminController extends Controller
     {
         $user = User::find($id);
         if ($user) {
-            $user->Etat = 0; 
+            $user->Etat = 0;
             $user->save();
 
             return response()->json([
                 'success' => true,
-                'message' => 'User account unblocked successfully.',
+                'message' => 'Compte utilisateur débloqué avec succès.',
             ], 200);
         } else {
             return response()->json([
