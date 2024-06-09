@@ -28,22 +28,7 @@ class AdminController extends Controller
         }
     }
 
-    public function deleteUser($id)
-    {
-        $user = User::find($id);
-        if ($user) {
-            $user->delete();
-            return response()->json([
-                'success' => true,
-                'message' => 'User deleted successfully.'
-            ]);
-        } else {
-            return response()->json([
-                'success' => false,
-                'message' => 'User not found.'
-            ]);
-        }
-    }
+
 
     public function userCreationsLastSixDays()
     {
@@ -72,4 +57,23 @@ class AdminController extends Controller
             'unblocked_users' => $unblockedCount,
         ]);
     }
+    public function unblockUser($id)
+    {
+        $user = User::find($id);
+        if ($user) {
+            $user->Etat = 0; 
+            $user->save();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'User account unblocked successfully.',
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'User not found.',
+            ], 404);
+        }
+    }
+
 }
