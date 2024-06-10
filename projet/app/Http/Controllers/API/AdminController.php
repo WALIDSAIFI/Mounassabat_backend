@@ -88,12 +88,12 @@ class AdminController extends Controller
         ]);
     }
     public  function utilisateurBloker(){
-        $userBoloker = User::where('Etat',0)->get();
+        $userBoloker = User::where('Etat',1)->get();
         return response()->json([
                $userBoloker,
         ]);
     }
-    public  function utilisateurBloker(){
+    public  function utilisateurNomBloker(){
         $userBoloker = User::where('Etat',0)->get();
         return response()->json([
             $userBoloker,
