@@ -20,10 +20,10 @@ class AdminMiddleware
     {
         $role = Auth::user()->role;
 
-        if (Auth::check() && $role === 'administrateur') {
+        if (Auth::check() && $role === 'admin') {
             return $next($request);
         }
-        
+
         return response()->json([
             'error' => 'Vous n\'avez pas accès à cette section.',
         ], 403);
