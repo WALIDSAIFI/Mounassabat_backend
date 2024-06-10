@@ -7,21 +7,23 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class Adminmiddleware
+class AdminMiddleware
 {
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check() && Auth::user()->role == 'admin') {
-                        return  $next($request);
+        if (Auth::check() && Auth::user()->role == 'administrateur') {
+            return $next($request);
         }
-         return  response()->json([
-             'error' => 'Vous n\'avez pas accès à cette section.',
-         ]);
-    }
 
+        return response()->json([
+            'error' => 'Vous n\'avez pas accès à cette section.',
+        ], 403);
+    }
 }
