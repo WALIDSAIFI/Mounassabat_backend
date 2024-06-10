@@ -35,4 +35,4 @@ Route::get('/unbolkerUser/{id}',[AdminController::class, 'unblockUser']);
 Route::get('/nombreutilisateurBloker',[AdminController::class, 'nombreBolker']);
 Route::get('/nombreutilisateurNomBloker',[AdminController::class, 'nombreNomBloker']);
 Route::get('/userBloker',[AdminController::class, 'utilisateurBloker']);
-
+Route::get('/userNomBloker',[AdminController::class,'utilisateurNomBloker']);
